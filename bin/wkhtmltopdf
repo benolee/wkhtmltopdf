@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
 
-MACHINE_NAME = `uname -m`
-
-if MACHINE_NAME == "i686"
+if `uname -m` =~ /i686/
   executable = 'wkhtmltopdf-i386'
-elsif MACHINE_NAME == 'x86_64'
+elsif `uname -m` =~ /x86_64/
   executable = 'wkhtmltopdf-amd64'
 else
   raise "Invalid platform. Must be running linux or intel-based Mac OS."
